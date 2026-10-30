@@ -1,0 +1,293 @@
+{
+  "nom": "Djeneba Ba",
+  "eyebrow": "Ingénieure M1 Big Data & Machine Learning",
+  "accroche_debut": "Je transforme des process manuels en ",
+  "accroche_fin": "systèmes qui tournent seuls.",
+  "presentation": "Développeuse RPA chez Verisure, spécialisée en automatisation Power Platform, intelligence artificielle appliquée et développement sur mesure.",
+  "fiche": [
+    [
+      "Formation",
+      "EFREI x Paris-Panthéon-Assas"
+    ],
+    [
+      "Diplôme",
+      "Ingénieure M1 Big Data & Machine Learning"
+    ],
+    [
+      "Poste actuel",
+      "Développeuse RPA et IA, Verisure"
+    ],
+    [
+      "Localisation",
+      "Île-de-France"
+    ]
+  ],
+  "contact": {
+    "email": "djeneba.ba@epfedu.fr",
+    "telephone": "+33 6 60 92 60 35",
+    "afficher_telephone": false,
+    "github": "https://github.com/jennyba-huey",
+    "linkedin": "https://www.linkedin.com/in/djeneba-ba-4a75b4260/"
+  },
+  "experiences": [
+    {
+      "dates": "Sept. 2025 · Aujourd'hui",
+      "poste": "Développeuse RPA et IA",
+      "entreprise": "Verisure France · Équipe Automatisation et Low-Code",
+      "description": "Conception de solutions d'automatisation et d'agents IA pour optimiser des processus métier. Développement Power Automate, Power Apps et UiPath, avec intégration de modèles de langage pour le traitement de données. Migration et historisation de données sur Snowflake. Pilotage agile au quotidien (Jira, Confluence).",
+      "tags": [
+        "Power Automate",
+        "Power Apps",
+        "UiPath",
+        "IA générative",
+        "Snowflake"
+      ]
+    },
+    {
+      "dates": "Sept. 2023 · Août 2025",
+      "poste": "Alternante Transformation Digitale et Innovation",
+      "entreprise": "Etex Group Siniat · Méthodes et Process",
+      "description": "Déploiement d'une GMAO en low-code (Power Apps), pilotage de KPIs (Excel, Power BI), automatisation de tâches répétitives et gestion de bases de données SQL.",
+      "tags": [
+        "Power Apps",
+        "Power BI",
+        "SQL"
+      ]
+    },
+    {
+      "dates": "Juillet 2022",
+      "poste": "Stagiaire Commercial et Logistique",
+      "entreprise": "Mijane · Triel-sur-Seine",
+      "description": "Gestion CRM, relances clients, gestion des stocks et analyse des besoins logistiques.",
+      "tags": []
+    }
+  ],
+  "projets": [
+    {
+      "titre": "StoryProject",
+      "techno": "Java",
+      "lien": "https://github.com/jennyba-huey/StoryApp_Djeneba_BA",
+      "description": "Application de gestion de récits, personnages et scènes, développée en Java/JavaFX. Architecture en quatre couches, base MySQL, tests unitaires et d'intégration JUnit 5, export PDF."
+    },
+    {
+      "titre": "Projet coffee shop",
+      "techno": "SQL",
+      "lien": "https://github.com/jennyba-huey/Projet-CoffeeShop_Basededonne",
+      "description": "Modélisation MCD/MLD en équipe et écriture des scripts SQL (MySQL) : procédures stockées, vues, index et gestion des droits d'accès sur une base relationnelle, avec une interface Python."
+    },
+    {
+      "titre": "Chat_Project",
+      "techno": "JavaScript",
+      "lien": "https://github.com/jennyba-huey/Chat_Project",
+      "description": "Application de messagerie en temps réel développée en JavaScript (React, Node.js/Express, Socket.IO) : salons multiples, épinglage de messages, envoi d'images et historique persistant."
+    },
+    {
+      "titre": "VLAN et routage inter-VLAN",
+      "techno": "Cisco",
+      "lien": "",
+      "description": "Configuration sous Cisco Packet Tracer : VLAN 802.1Q, relais DHCP et routage inter-VLAN sur une maquette réseau."
+    }
+  ],
+  "competences": {
+    "Automatisation": [
+      "Power Automate",
+      "Power Apps",
+      "UiPath",
+      "Copilot Studio"
+    ],
+    "Data et IA": [
+      "Python",
+      "SQL / Snowflake",
+      "Power BI",
+      "Azure OpenAI"
+    ],
+    "Développement": [
+      "Java / JavaFX",
+      "JavaScript / Node.js",
+      "TypeScript"
+    ],
+    "Méthode et outils": [
+      "Jira / Confluence",
+      "Git",
+      "Agile"
+    ]
+  },
+  "frise": [
+    {
+      "nom": "Baccalauréat général",
+      "type": "Formation",
+      "debut": "2020-09-01",
+      "fin": "2022-07-01",
+      "lieu": "Lycée Polyvalent de Cachan"
+    },
+    {
+      "nom": "Licence Ingénierie Numérique",
+      "type": "Formation",
+      "debut": "2022-09-01",
+      "fin": "2025-07-01",
+      "lieu": "EPF"
+    },
+    {
+      "nom": "Ingénieur Master 1 Big Data et ML",
+      "type": "Formation",
+      "debut": "2026-09-01",
+      "fin": "aujourdhui",
+      "lieu": "EFREI Paris",
+      "fin_prevue": "2028-08-31"
+    },
+    {
+      "nom": "Stage Mijane",
+      "type": "Expérience",
+      "debut": "2022-07-01",
+      "fin": "2022-07-31",
+      "lieu": "Commercial et Logistique"
+    },
+    {
+      "nom": "Alternance Etex Siniat",
+      "type": "Expérience",
+      "debut": "2023-09-01",
+      "fin": "2025-08-31",
+      "lieu": "Transformation Digitale et Innovation"
+    },
+    {
+      "nom": "Verisure France",
+      "type": "Expérience",
+      "debut": "2025-09-01",
+      "fin": "aujourdhui",
+      "lieu": "Développeuse RPA et IA",
+      "fin_prevue": "2028-08-31"
+    }
+  ],
+  "formations": [
+    {
+      "dates": "2026 · en cours",
+      "diplome": "Ingénieure Big Data & Machine Learning M1",
+      "ecole": "EFREI Paris, École d'Ingénieurs Informatique x Université Paris-Panthéon-Assas"
+    },
+    {
+      "dates": "2022 · 2025",
+      "diplome": "Licence Ingénierie Numérique et Systèmes d'Information",
+      "ecole": "EPF, École Polytechnique Féminine"
+    },
+    {
+      "dates": "2020 · 2022",
+      "diplome": "Baccalauréat général, spécialités Physique-Chimie, SVT et Mathématiques",
+      "ecole": "Lycée Polyvalent de Cachan"
+    }
+  ],
+  "radar": [
+    {
+      "outil": "Power Automate",
+      "niveau": 4.5,
+      "source": "Verisure (RPA et IA), Etex Group Siniat"
+    },
+    {
+      "outil": "Power Apps",
+      "niveau": 4.5,
+      "source": "Verisure, GMAO low-code chez Etex Group Siniat"
+    },
+    {
+      "outil": "Copilot Studio",
+      "niveau": 3.5,
+      "source": "Agents IA chez Verisure"
+    },
+    {
+      "outil": "UiPath",
+      "niveau": 3,
+      "source": "Verisure (RPA)"
+    },
+    {
+      "outil": "Python",
+      "niveau": 3.5,
+      "source": "Master Big Data, agents IA, interface du projet coffee shop"
+    },
+    {
+      "outil": "SQL (MySQL, Snowflake)",
+      "niveau": 3.5,
+      "source": "Projet coffee shop, StoryProject, Snowflake chez Verisure"
+    },
+    {
+      "outil": "Power BI",
+      "niveau": 3,
+      "source": "Pilotage de KPIs chez Etex Group Siniat"
+    },
+    {
+      "outil": "Java (JavaFX)",
+      "niveau": 3,
+      "source": "GitHub : StoryProject"
+    },
+    {
+      "outil": "JavaScript (React, Node.js)",
+      "niveau": 3,
+      "source": "GitHub : Chat_Project"
+    }
+  ],
+  "histoire": {
+    "titre": "Cinq étapes, un fil rouge",
+    "sous_titre": "Comprendre le terrain, l'automatiser, puis apprendre à faire parler les données.",
+    "zones_paralleles": [
+      [
+        "2023-09-01",
+        "2025-07-01"
+      ],
+      [
+        "2026-09-01",
+        "2028-08-31"
+      ]
+    ],
+    "chapitres": [
+      {
+        "num": "01",
+        "date": "2020-09-01",
+        "piste": "Formation",
+        "annee": "2020",
+        "titre": "Le déclic scientifique",
+        "detail": "Bac général, Lycée de Cachan",
+        "chiffre": "3",
+        "legende": "spécialités scientifiques"
+      },
+      {
+        "num": "02",
+        "date": "2022-09-01",
+        "piste": "Formation",
+        "annee": "2022",
+        "titre": "Les bases du numérique",
+        "detail": "Licence Ingénierie Numérique, EPF",
+        "chiffre": "1<sup>er</sup>",
+        "legende": "stage terrain, chez Mijane"
+      },
+      {
+        "num": "03",
+        "date": "2023-09-01",
+        "piste": "Expérience",
+        "annee": "2023",
+        "titre": "Le terrain industriel",
+        "detail": "Alternance, Etex Group Siniat",
+        "chiffre": "1 GMAO",
+        "legende": "déployée en low-code"
+      },
+      {
+        "num": "04",
+        "date": "2025-09-01",
+        "piste": "Expérience",
+        "annee": "2025",
+        "titre": "L'automatisation à l'échelle",
+        "detail": "Développeuse RPA et IA, Verisure",
+        "chiffre": "12",
+        "legende": "processus automatisés (exemple)"
+      },
+      {
+        "num": "05",
+        "date": "2026-09-01",
+        "piste": "Formation",
+        "annee": "Aujourd'hui",
+        "titre": "Cap sur la data",
+        "detail": "Master Big Data et ML, EFREI, en alternance",
+        "chiffre": "2028",
+        "legende": "diplôme d'ingénieure visé",
+        "couleur": "Expérience",
+        "actuel": true
+      }
+    ]
+  }
+}

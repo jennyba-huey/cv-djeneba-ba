@@ -1,0 +1,3 @@
+Dépose ici (facultatif) :
+- photo.jpg : ta photo, affichée automatiquement en haut à droite
+- CV_Djeneba_Ba.pdf : ton CV PDF, un bouton de téléchargement apparaît automatiquement
