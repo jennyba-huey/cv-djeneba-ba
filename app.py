@@ -6,7 +6,6 @@ from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-import streamlit.components.v1 as components
 
 DOSSIER = Path(__file__).parent
 PHOTO = DOSSIER / "assets" / "photo.jpg"
@@ -48,46 +47,73 @@ def carte_timeline(dates, titre, organisation, description="", tags=()):
 COULEURS = {"Formation": "#2F8F6B", "Expérience": "#C8763A"}
 
 FRISE_CSS = """
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:transparent;}
-.frise{position:relative;height:620px;margin:6px 8px 0 92px;font-family:Inter,sans-serif;color:#2B2F3A;}
-.yr{position:absolute;top:0;bottom:22px;border-left:1px solid #F3EEE8;}
-.yr span{position:absolute;bottom:-22px;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9198A4;}
-.par{position:absolute;top:232px;height:118px;background:rgba(243,225,205,.75);border-radius:8px;}
-.par span{position:absolute;width:100%;text-align:center;top:50px;font-size:11px;color:#8A5A2B;}
-.bar{position:absolute;height:16px;border-radius:8px;}
-.bar.f{top:246px;}.bar.e{top:320px;}
-.prev{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 30%,transparent) 0 2px,transparent 2px 7px);
- border:1.5px solid var(--c);box-sizing:border-box;}
-.lane{position:absolute;left:-92px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;}
-.mini{position:absolute;top:320px;margin-left:6px;font-size:11px;color:#5B6472;line-height:16px;}
-.pin{position:absolute;width:0;}
-.pin i{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--c);
- border:3px solid #fff;box-shadow:0 0 0 1px var(--c);color:#fff;font:500 10px 'IBM Plex Mono',monospace;
- display:flex;align-items:center;justify-content:center;font-style:normal;}
-.pin.f{top:254px;}.pin.e{top:328px;}
-.pin:before{content:"";position:absolute;border-left:1.5px dotted var(--c);height:62px;}
-.pin.f:before{bottom:0;}.pin.e:before{top:0;}
-.card{position:absolute;width:172px;margin-left:-14px;background:#fff;border:1px solid #EAE1D8;border-top:3px solid var(--c);
- border-radius:12px;padding:10px 12px;box-sizing:border-box;transition:transform .2s,box-shadow .2s;}
-.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(43,47,58,.08);}
-.card.f{bottom:calc(620px - 192px);}.card.e{top:390px;}
-.card.now{background:#FFF8F2;}
-.an{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9198A4;}
-.t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;line-height:1.2;margin:2px 0 4px;}
-.ds{font-size:12px;color:#5B6472;line-height:1.35;}
-.big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:var(--c);line-height:1;margin-top:8px;}
-.big sup{font-size:12px;}
-.lab{font-size:12px;color:#5B6472;margin-top:2px;}
-.today{position:absolute;top:222px;height:140px;border-left:1.5px dashed #2B2F3A;}
-.today span{position:absolute;top:142px;transform:translateX(-50%);font-size:11px;white-space:nowrap;}
+.fr{font-family:Inter,sans-serif;color:#2B2F3A;}
+/* ---------- version ordinateur ---------- */
+.fr-d{position:relative;height:620px;margin:6px 8px 0 92px;}
+.fr-yr{position:absolute;top:0;bottom:22px;border-left:1px solid #F3EEE8;}
+.fr-yr span{position:absolute;bottom:-22px;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9198A4;}
+.fr-par{position:absolute;top:232px;height:118px;background:rgba(243,225,205,.75);border-radius:8px;}
+.fr-par span{position:absolute;width:100%;text-align:center;top:50px;font-size:11px;color:#8A5A2B;}
+.fr-bar{position:absolute;height:16px;border-radius:8px;}
+.fr-d .fr-bar.f{top:246px;}.fr-d .fr-bar.e{top:320px;}
+.fr-prev{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 30%,transparent) 0 2px,transparent 2px 7px);border:1.5px solid var(--c);box-sizing:border-box;}
+.fr-lane{position:absolute;left:-92px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;}
+.fr-mini{position:absolute;top:320px;margin-left:6px;font-size:11px;color:#5B6472;line-height:16px;}
+.fr-pin{position:absolute;width:0;}
+.fr-pin i{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--c);border:3px solid #fff;
+ box-shadow:0 0 0 1px var(--c);color:#fff;font:500 10px 'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center;font-style:normal;}
+.fr-d .fr-pin.f{top:254px;}.fr-d .fr-pin.e{top:328px;}
+.fr-d .fr-pin:before{content:"";position:absolute;border-left:1.5px dotted var(--c);height:62px;}
+.fr-d .fr-pin.f:before{bottom:0;}.fr-d .fr-pin.e:before{top:0;}
+.fr-card{background:#fff;border:1px solid #EAE1D8;border-top:3px solid var(--c);border-radius:12px;padding:10px 12px;box-sizing:border-box;transition:transform .2s,box-shadow .2s;}
+.fr-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(43,47,58,.08);}
+.fr-d .fr-card{position:absolute;width:172px;margin-left:-14px;}
+.fr-d .fr-card.f{bottom:calc(620px - 192px);}.fr-d .fr-card.e{top:390px;}
+.fr-card.now{background:#FFF8F2;}
+.fr-an{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9198A4;}
+.fr-t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;line-height:1.2;margin:2px 0 4px;}
+.fr-ds{font-size:12px;color:#5B6472;line-height:1.35;}
+.fr-big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:var(--c);line-height:1;margin-top:8px;}
+.fr-big sup{font-size:12px;}
+.fr-lab{font-size:12px;color:#5B6472;margin-top:2px;}
+.fr-today{position:absolute;border-left:1.5px dashed #2B2F3A;}
+.fr-d .fr-today{top:222px;height:140px;}
+.fr-today span{position:absolute;transform:translateX(-50%);font-size:11px;white-space:nowrap;}
+.fr-d .fr-today span{top:142px;}
+/* ---------- version téléphone ---------- */
+.fr-m{display:none;}
+@media (max-width:760px){
+ .fr-d{display:none;}
+ .fr-m{display:block;}
+ .fr-mf{position:relative;height:150px;margin:8px 4px 0 74px;}
+ .fr-m .fr-lane{left:-74px;font-size:12px;}
+ .fr-m .fr-bar{height:12px;border-radius:6px;}
+ .fr-m .fr-bar.f{top:34px;}.fr-m .fr-bar.e{top:84px;}
+ .fr-m .fr-par{top:22px;height:86px;}
+ .fr-m .fr-par span{display:none;}
+ .fr-m .fr-pin i{width:20px;height:20px;border-width:2px;font-size:9px;}
+ .fr-m .fr-pin.f{top:40px;}.fr-m .fr-pin.e{top:90px;}
+ .fr-m .fr-yr{bottom:18px;}
+ .fr-m .fr-yr span{bottom:-18px;font-size:10px;}
+ .fr-m .fr-yr.odd span{display:none;}
+ .fr-m .fr-today{top:16px;height:96px;}
+ .fr-m .fr-today span{top:-14px;font-size:10px;}
+ .fr-m .fr-mini{display:none;}
+ .fr-leg{display:flex;gap:14px;margin:6px 0 14px;font-size:11px;color:#8A5A2B;}
+ .fr-leg i{display:inline-block;width:12px;height:10px;border-radius:3px;background:rgba(243,225,205,.9);margin-right:5px;vertical-align:-1px;}
+ .fr-list{display:flex;flex-direction:column;gap:10px;}
+ .fr-list .fr-card{display:grid;grid-template-columns:34px 1fr;column-gap:10px;border-top-width:1px;border-left:4px solid var(--c);}
+ .fr-num{grid-row:span 5;width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font:500 10px 'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center;}
+ .fr-list .fr-big{font-size:20px;}
+}
 </style>
 """
 
 
 def frise_histoire(frise, histoire):
-    """Frise chronologique : position = date, longueur = durée, couleur = type."""
+    """Frise chronologique : position = date, longueur = durée, couleur = type.
+    Sur ordinateur : cartes autour de la frise. Sur téléphone : frise compacte + cartes en liste."""
     aujourdhui = pd.Timestamp.today().normalize()
     debut_axe, fin_axe = pd.Timestamp("2020-01-01"), pd.Timestamp("2029-01-01")
 
@@ -98,39 +124,56 @@ def frise_histoire(frise, histoire):
         return (date(d) - debut_axe).days / (fin_axe - debut_axe).days * 100
 
     piste = {"Formation": "f", "Expérience": "e"}
-    h = []
-    for annee in range(debut_axe.year, fin_axe.year):
-        h.append(f'<div class="yr" style="left:{x(f"{annee}-01-01"):.2f}%"><span>{annee}</span></div>')
-    for a, b in histoire["zones_paralleles"]:
-        h.append(f'<div class="par" style="left:{x(a):.2f}%;width:{x(b) - x(a):.2f}%">'
-                 f'<span>études + entreprise</span></div>')
-    for e in frise:
-        d0, d1 = date(e["debut"]), date(e["fin"])
-        mois = max(1, round((d1 - d0).days / 30.44))
-        c = COULEURS[e["type"]]
-        h.append(f'<div class="bar {piste[e["type"]]}" title="{escape(e["nom"])} : {mois} mois" '
-                 f'style="left:{x(e["debut"]):.2f}%;width:{max(x(e["fin"]) - x(e["debut"]), 0.5):.2f}%;background:{c}"></div>')
-        if e.get("fin_prevue"):
-            h.append(f'<div class="bar {piste[e["type"]]} prev" title="{escape(e["nom"])} : fin prévue en '
-                     f'{date(e["fin_prevue"]).year}" style="left:{x(e["fin"]):.2f}%;'
-                     f'width:{x(e["fin_prevue"]) - x(e["fin"]):.2f}%;--c:{c}"></div>')
-        if mois <= 2 and e["type"] == "Expérience":
-            h.append(f'<div class="mini" style="left:{x(e["fin"]):.2f}%">{escape(e["nom"].split()[-1])}</div>')
-    for ch in histoire["chapitres"]:
-        p = piste[ch["piste"]]
-        c = COULEURS[ch.get("couleur", ch["piste"])]
-        actuel = " now" if ch.get("actuel") else ""
-        h.append(f'<div class="pin {p}" style="left:{x(ch["date"]):.2f}%;--c:{c}"><i>{ch["num"]}</i></div>')
-        h.append(f'<div class="card {p}{actuel}" style="left:{x(ch["date"]):.2f}%;--c:{c}">'
-                 f'<div class="an">{escape(ch["annee"])}</div><div class="t">{escape(ch["titre"])}</div>'
-                 f'<div class="ds">{escape(ch["detail"])}</div><div class="big">{ch["chiffre"]}</div>'
-                 f'<div class="lab">{escape(ch["legende"])}</div></div>')
-    h.append(f'<div class="today" style="left:{x("aujourdhui"):.2f}%"><span>aujourd\'hui</span></div>')
 
-    return (FRISE_CSS + '<div class="frise">'
-            f'<div class="lane" style="top:244px;color:{COULEURS["Formation"]}">Formation</div>'
-            f'<div class="lane" style="top:318px;color:{COULEURS["Expérience"]}">Entreprise</div>'
-            + "".join(h) + "</div>")
+    def axe(avec_pins_cartes):
+        h = []
+        for annee in range(debut_axe.year, fin_axe.year):
+            impaire = " odd" if annee % 2 else ""
+            h.append(f'<div class="fr-yr{impaire}" style="left:{x(f"{annee}-01-01"):.2f}%"><span>{annee}</span></div>')
+        for a, b in histoire["zones_paralleles"]:
+            h.append(f'<div class="fr-par" style="left:{x(a):.2f}%;width:{x(b) - x(a):.2f}%">'
+                     f'<span>études + entreprise</span></div>')
+        for e in frise:
+            d0, d1 = date(e["debut"]), date(e["fin"])
+            mois = max(1, round((d1 - d0).days / 30.44))
+            c = COULEURS[e["type"]]
+            p = piste[e["type"]]
+            h.append(f'<div class="fr-bar {p}" title="{escape(e["nom"])} : {mois} mois" '
+                     f'style="left:{x(e["debut"]):.2f}%;width:{max(x(e["fin"]) - x(e["debut"]), 0.5):.2f}%;background:{c}"></div>')
+            if e.get("fin_prevue"):
+                h.append(f'<div class="fr-bar {p} fr-prev" title="{escape(e["nom"])} : fin prévue en '
+                         f'{date(e["fin_prevue"]).year}" style="left:{x(e["fin"]):.2f}%;'
+                         f'width:{x(e["fin_prevue"]) - x(e["fin"]):.2f}%;--c:{c}"></div>')
+            if mois <= 2 and e["type"] == "Expérience":
+                h.append(f'<div class="fr-mini" style="left:{x(e["fin"]):.2f}%">{escape(e["nom"].split()[-1])}</div>')
+        for ch in histoire["chapitres"]:
+            p = piste[ch["piste"]]
+            c = COULEURS[ch.get("couleur", ch["piste"])]
+            h.append(f'<div class="fr-pin {p}" style="left:{x(ch["date"]):.2f}%;--c:{c}"><i>{ch["num"]}</i></div>')
+            if avec_pins_cartes:
+                h.append(carte(ch, f'fr-card {p}{" now" if ch.get("actuel") else ""}',
+                               f'left:{x(ch["date"]):.2f}%;--c:{c}'))
+        h.append(f'<div class="fr-today" style="left:{x("aujourdhui"):.2f}%"><span>aujourd\'hui</span></div>')
+        h.append(f'<div class="fr-lane" style="top:{{f}}px;color:{COULEURS["Formation"]}">Formation</div>'
+                 f'<div class="fr-lane" style="top:{{e}}px;color:{COULEURS["Expérience"]}">Entreprise</div>')
+        return "".join(h)
+
+    def carte(ch, classes, style, numero=False):
+        num = f'<div class="fr-num">{ch["num"]}</div>' if numero else ""
+        return (f'<div class="{classes}" style="{style}">{num}'
+                f'<div class="fr-an">{escape(ch["annee"])}</div><div class="fr-t">{escape(ch["titre"])}</div>'
+                f'<div class="fr-ds">{escape(ch["detail"])}</div><div class="fr-big">{ch["chiffre"]}</div>'
+                f'<div class="fr-lab">{escape(ch["legende"])}</div></div>')
+
+    ordinateur = '<div class="fr-d">' + axe(True).replace("{f}", "244").replace("{e}", "318") + "</div>"
+    liste = "".join(
+        carte(ch, f'fr-card{" now" if ch.get("actuel") else ""}',
+              f'--c:{COULEURS[ch.get("couleur", ch["piste"])]}', numero=True)
+        for ch in histoire["chapitres"])
+    telephone = ('<div class="fr-m"><div class="fr-mf">' + axe(False).replace("{f}", "31").replace("{e}", "81")
+                 + '</div><div class="fr-leg"><span><i></i>études + entreprise en parallèle</span></div>'
+                 f'<div class="fr-list">{liste}</div></div>')
+    return FRISE_CSS + '<div class="fr">' + ordinateur + telephone + "</div>"
 
 
 def graphique_radar(radar):
@@ -282,7 +325,7 @@ with onglets[0]:
         html(f'<span class="eyebrow">Mon histoire</span>'
              f'<h3 style="margin:4px 0 0;padding:0;font-size:1.6rem;">{escape(histoire["titre"])}</h3>'
              f'<p class="section-sub" style="margin:4px 0 0;">{escape(histoire["sous_titre"])}</p>')
-        components.html(frise_histoire(cv["frise"], histoire), height=650)
+        st.html(frise_histoire(cv["frise"], histoire))
     for exp in cv["experiences"]:
         carte_timeline(exp["dates"], exp["poste"], exp["entreprise"], exp["description"], exp["tags"])
 
